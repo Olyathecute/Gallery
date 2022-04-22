@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Gallery from './pages/Gallery'
+import About from './pages/About'
+import { Spinner } from 'react-bootstrap'
+import { Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+const url = 'https://jsonplaceholder.typicode.com/photos'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Spinner animation="border" variant="warning" style={{ width: '60px', height: '60px' }} />
+
+      <Routes>
+        <Route path="/" element={<Gallery />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
