@@ -1,45 +1,53 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Navbar, Container, Offcanvas, Nav, Form, FormControl, Row, Col, Image } from 'react-bootstrap'
+import { Navbar, Container, Offcanvas, Row, Col, Image } from 'react-bootstrap'
+import { NavLinks, MyName, MyLocation, MyPhoto } from '../info'
 
 export default function Header() {
   const [show, setShow] = useState(false)
-  const handleClick = () => setShow(false)
+
+  const handleClose = () => {
+    setShow(false)
+  }
+
+  const handleOpen = () => {
+    setShow(true)
+  }
 
   return (
     <header>
-      <Navbar className="justify-content-md-end bg-success" expand={false}>
+      <Navbar bg="success" expand={false}>
         <Container fluid className="justify-content-end">
-          <Navbar.Toggle aria-controls="offcanvasNavbar" />
-          <Navbar.Offcanvas id="offcanvasNavbar" className="bg-success" placement="start">
+          <Navbar.Toggle aria-controls="offcanvasNavbar" onClick={handleOpen} />
+          <Offcanvas id="offcanvasNavbar" placement="start" className="bg-success" scroll="true" show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton className="justify-content-end" />
-            <Offcanvas.Body className="bg-success">
+            <Offcanvas.Body>
               <Row>
-                <Col className="text-center">
-                  <Link to="/" className="text-light text-decoration-none" onClick={handleClick}>
-                    Gallery
-                  </Link>
-                </Col>
-                <Col className="text-center">
-                  <Link to="/about" className="text-light text-decoration-none">
-                    About
-                  </Link>
-                </Col>
+                {NavLinks.map(({ to, link }, index) => {
+                  return (
+                    <Col key={index} className="text-center">
+                      <Link to={to} className="text-light text-decoration-none" onClick={handleClose}>
+                        {link}
+                      </Link>
+                    </Col>
+                  )
+                })}
               </Row>
+
               <Row>
                 <Col className="justify-content-center text-center py-2">
-                  <Image roundedCircle style={{ width: '150px', paddingBottom: '12px' }} src="/photo.jpg" />
+                  <div className="mask rgba-black-strong">
+                    <Image roundedCircle className="pb-3 w-50" src={MyPhoto} />
+                  </div>
 
                   <div className="text-light">
-                    <h5>Olya</h5>
-                    <p style={{ opacity: '.5' }}>Georgia, Tbilisi</p>
+                    <h5>{MyName}</h5>
+                    <address style={{ opacity: '.5' }}>{MyLocation}</address>
                   </div>
                 </Col>
               </Row>
-
-              <Nav className="justify-content-end flex-grow-1 pe-3"></Nav>
             </Offcanvas.Body>
-          </Navbar.Offcanvas>
+          </Offcanvas>
         </Container>
       </Navbar>
     </header>

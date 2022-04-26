@@ -2,14 +2,19 @@ import { AiFillLinkedin } from 'react-icons/ai'
 import { BsTelegram, BsGithub } from 'react-icons/bs'
 import { HiMail } from 'react-icons/hi'
 
-export const PHOTO = '/photo.jpg'
-export const NAME = 'Olya'
-export const LOCATION = 'Georgia, Tbilisi'
-export const ABOUTTEXT = 'Привет! Меня зовут Оля'
+export const MyPhoto = '/photo.jpg'
+export const MyName = 'Olya'
+export const MyLocation = 'Georgia, Tbilisi'
+export const AboutText = 'Привет! Меня зовут Оля'
 
-export const LINKS = [
-  { icon: <BsGithub size={40} />, link: 'https://github.com/Olyathecute' },
-  { icon: <HiMail size={40} />, link: 'sitnikova.olga.v@outlook.com' },
-  { icon: <BsTelegram size={40} />, link: 'https://t.me/olga_sitnikova' },
-  { icon: <AiFillLinkedin size={40} />, link: 'https://www.linkedin.com/in/olga-sitnikova-a331a3230/' }
+export const MyLinks = [
+  { Component: BsGithub, link: 'https://github.com/Olyathecute' },
+  { Component: HiMail, link: 'mailto:sitnikova.olga.v@outlook.com' },
+  { Component: BsTelegram, link: 'https://t.me/olga_sitnikova' },
+  { Component: AiFillLinkedin, link: 'https://www.linkedin.com/in/olga-sitnikova-a331a3230/' }
+]
+
+export const NavLinks = [
+  { to: '/', link: 'Gallery' },
+  { to: '/about', link: 'About' }
 ]

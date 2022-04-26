@@ -1,17 +1,17 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import { LINKS } from '../info'
+import { MyLinks } from '../info'
 
 export default function Footer() {
   return (
     <footer className="bg-success text-light py-3">
       <Container>
         <Row className="justify-content-md-center py-1">
-          {LINKS.map(({ icon, link }, index) => {
+          {MyLinks.map(({ Component, link }, index) => {
             return (
               <Col key={index} xs={1} className="text-center">
-                <a href={link} target="_blank">
-                  {icon}
+                <a href={link} className="text-light" target="_blank">
+                  <Component size={40} />
                 </a>
               </Col>
             )
