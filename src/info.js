@@ -18,3 +18,6 @@ export const NavLinks = [
   { to: '/', link: 'Gallery' },
   { to: '/about', link: 'About' }
 ]
+
+export const numOfGroups = 4
+export const numOfPhotos = 6

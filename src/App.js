@@ -8,15 +8,6 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 
 function App() {
-  const [photos, setPhotos] = useState()
-  console.log(photos)
-
-  useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/albums/1/photos').then(({ data }) => {
-      setPhotos(data)
-    })
-  }, [])
-
   return (
     <div className="App">
       <Header />

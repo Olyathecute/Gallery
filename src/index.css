@@ -9,3 +9,20 @@ body {
 ::-webkit-scrollbar {
   width: 0;
 }
+
+.pagination > li > a {
+  color: #ffc107;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
+  color: #212529;
+}
+
+.pagination > .active > span {
+  color: #198754 !important;
+  background-color: white !important;
+  border-color: #dee2e6 !important;
+}
