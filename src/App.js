@@ -6,6 +6,7 @@ import { Spinner } from 'react-bootstrap'
 import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import More from './pages/More'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Gallery />} />
           <Route path="/about" element={<About />} />
+          <Route path="/more/:id" element={<More />} />
         </Routes>
         <Footer />
       </div>

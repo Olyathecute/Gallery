@@ -10,6 +10,10 @@ body {
   width: 0;
 }
 
+a:hover {
+  color: #ffc107 !important;
+}
+
 .pagination > li > a {
   color: #ffc107;
 }
@@ -25,4 +29,18 @@ body {
   color: #198754 !important;
   background-color: white !important;
   border-color: #dee2e6 !important;
+}
+
+.pagination + .container > div:hover > img {
+  filter: brightness(50%);
+  transition: 0.3s;
+}
+
+.pagination + .container > div > img + a {
+  opacity: 0;
+}
+
+.pagination + .container > div:hover > img + a,
+.pagination + .container > div > img + a:hover {
+  opacity: 1;
 }

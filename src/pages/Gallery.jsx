@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, createRef } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import axios from 'axios'
-import { Image, Pagination } from 'react-bootstrap'
+import { Container, Image, Pagination } from 'react-bootstrap'
 import { numOfGroups, numOfPhotos } from '../info'
 
 export default function Gallery() {
@@ -38,11 +39,18 @@ export default function Gallery() {
                 )
               })}
             </Pagination>
-            <div className="d-flex justify-content-center flex-wrap">
+            <Container className="text-center">
               {photos.slice(group, group + 6).map(img => {
-                return <Image key={img.id} className="m-1 w-25 rounded border border-dark" src={img.url} />
+                return (
+                  <div key={img.id} className="d-inline position-relative">
+                    <Image className="m-1 w-25 rounded border border-dark" src={img.url} />
+                    <Link to={`/more/${img.id}`} className="position-absolute top-50 start-50 translate-middle h5 text-light text-decoration-none">
+                      More
+                    </Link>
+                  </div>
+                )
               })}
-            </div>
+            </Container>
           </div>
         )
       })}
