@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { Navbar, Container, Offcanvas, Row, Col, Image } from 'react-bootstrap'
 import { NavLinks, MyName, MyLocation, MyPhoto } from '../info'
 
@@ -26,7 +26,7 @@ export default function Header() {
                 {NavLinks.map(({ to, link }, index) => {
                   return (
                     <Col key={index} className="text-center">
-                      <Link to={to} className="text-light text-decoration-none" onClick={handleClose}>
+                      <Link to={to} className="link-light text-decoration-none" onClick={handleClose}>
                         {link}
                       </Link>
                     </Col>

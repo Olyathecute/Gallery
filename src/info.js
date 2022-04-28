@@ -5,7 +5,15 @@ import { HiMail } from 'react-icons/hi'
 export const MyPhoto = '/photo.jpg'
 export const MyName = 'Olya'
 export const MyLocation = 'Georgia, Tbilisi'
-export const AboutText = 'Привет! Меня зовут Оля'
+export const AboutText = (
+  <>
+    <h5>Hi everyone!</h5>
+    <p>
+      My name is Olya, I'm a junior front-end developer (React). This is my mini-project for job test. In my life I am fond of traveling, anime and
+      drawing, I also like to play board games and sometimes make them {':)'}
+    </p>
+  </>
+)
 
 export const MyLinks = [
   { Component: BsGithub, link: 'https://github.com/Olyathecute' },

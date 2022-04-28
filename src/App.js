@@ -9,15 +9,17 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Header />
       {/* <Spinner animation="border" variant="warning" style={{ width: '60px', height: '60px' }} /> */}
-      <Routes>
-        <Route path="/" element={<Gallery />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-      <Footer />
-    </div>
+      <div className="d-flex flex-column vh-100">
+        <Routes>
+          <Route path="/" element={<Gallery />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+        <Footer />
+      </div>
+    </>
   )
 }
 
