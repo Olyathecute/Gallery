@@ -1,7 +1,5 @@
 This application using:
 
-## React hooks
-
 - React hooks
 - reduxjs/toolkit
 - redux-saga
