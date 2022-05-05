@@ -10,7 +10,7 @@ export default function Footer() {
           {MyLinks.map(({ Component, link }, index) => {
             return (
               <Col key={index} xs={5} md={2} className="text-center py-1">
-                <a href={link} className="link-light" target="_blank">
+                <a href={link} className="link-light" target="_blank" rel="noreferrer">
                   <Component size={40} />
                 </a>
               </Col>

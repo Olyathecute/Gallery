@@ -8,9 +8,9 @@ export const MyLocation = 'Georgia, Tbilisi'
 export const AboutText = (
   <>
     <h5>Hi everyone!</h5>
-    <p>
-      My name is Olya, I'm a junior front-end developer (React). This is my mini-project for job test. In my life I am fond of traveling, anime and
-      drawing, I also like to play board games and sometimes make them {':)'}
+    <p style={{ margin: '0' }}>My name is Olya, I'm a junior front-end developer (React). This is my mini-project for job test.</p>
+    <p style={{ margin: '0' }}>
+      In my life I am fond of traveling, anime and drawing, I also like to play board games and sometimes make them {':)'}
     </p>
   </>
 )

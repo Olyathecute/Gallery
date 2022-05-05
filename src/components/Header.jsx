@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Navbar, Container, Offcanvas, Row, Col, Image } from 'react-bootstrap'
 import { NavLinks, MyName, MyLocation, MyPhoto } from '../info'
 
