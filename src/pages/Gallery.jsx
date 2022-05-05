@@ -1,51 +1,49 @@
-import React, { useEffect, useState, useRef, createRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
-import { sleep } from '../sleep'
+import { useSelector, useDispatch } from 'react-redux'
+import { getPhotosFetch } from '../redux/appState'
 import SpinnerComponent from '../components/SpinnerComponent'
 import { Container, Image, Pagination } from 'react-bootstrap'
-import { numOfGroups, numOfPhotos } from '../info'
+import { numOfPhotos } from '../info'
 
 export default function Gallery() {
-  const [photos, setPhotos] = useState([])
-
-  useEffect(() => {
-    sleep(500)
-      .then(() => axios.get(`https://jsonplaceholder.typicode.com/albums/1/photos/`))
-      .then(({ data }) => setPhotos(data))
-  }, [])
-
-  const groups = [0, 6, 12, 18]
-  const refs = useRef(
-    Array(groups.length)
-      .fill(0)
-      .map(i => createRef())
-  )
-
   const executeScroll = element => {
     element.scrollIntoView()
   }
 
+  const { photos, isLoading } = useSelector(({ photos }) => photos)
+  const dispatch = useDispatch()
+  const refs = useRef([])
+
+  useEffect(() => {
+    dispatch(getPhotosFetch())
+  }, [dispatch])
+
+  const photosArray = []
+  for (let i = 0; i < Math.ceil(photos.length / numOfPhotos); i++) {
+    photosArray[i] = photos.slice(i * numOfPhotos, i * numOfPhotos + numOfPhotos)
+  } // creating as many photo groups as we need
+
   return (
     <>
-      {!photos.length ? (
+      {isLoading ? (
         <SpinnerComponent />
       ) : (
         <div className="m-3">
-          {groups.map((group, i) => {
+          {photosArray.map((group, i) => {
             return (
               <div key={i} className="p-2">
-                <Pagination className="d-flex justify-content-center pagination-sm-sm" ref={refs.current[i]}>
-                  {groups.map((_, j) => {
+                <Pagination className="d-flex justify-content-center pagination-sm-sm" ref={el => (refs.current[i] = el)}>
+                  {photosArray.map((_, j) => {
                     return (
-                      <Pagination.Item key={j} active={i === j} onClick={() => executeScroll(refs.current[j].current)}>
+                      <Pagination.Item key={j} active={i === j} onClick={() => executeScroll(refs.current[j])}>
                         Group {j + 1}
                       </Pagination.Item>
                     )
                   })}
                 </Pagination>
                 <Container className="text-center">
-                  {photos.slice(group, group + 6).map(img => {
+                  {group.map(img => {
                     return (
                       <div key={img.id} className="d-inline position-relative">
                         <Image className="m-1 w-25 rounded border border-dark" src={img.url} />

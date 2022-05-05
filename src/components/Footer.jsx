@@ -6,10 +6,10 @@ export default function Footer() {
   return (
     <footer className="flex-grow-0 bg-success text-light py-3">
       <Container>
-        <Row className="justify-content-md-center py-1">
+        <Row className="d-flex justify-content-center flex-wrap">
           {MyLinks.map(({ Component, link }, index) => {
             return (
-              <Col key={index} xs={1} className="text-center">
+              <Col key={index} xs={5} md={2} className="text-center py-1">
                 <a href={link} className="link-light" target="_blank">
                   <Component size={40} />
                 </a>
@@ -24,5 +24,3 @@ export default function Footer() {
     </footer>
   )
 }
-
-// position-absolute bottom-0 start-0

@@ -25,7 +25,7 @@ export default function More() {
       ) : (
         <div className="flex-grow-1 m-3">
           <Link to="/">
-            <BsArrowLeftSquareFill className="text-warning" size={50} />
+            <BsArrowLeftSquareFill className="text-warning" size={40} />
           </Link>
           <div className="d-flex justify-content-center">
             <Card className="m-0 w-50">
