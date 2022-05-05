@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getPhotosFetch } from '../redux/appState'
 import SpinnerComponent from '../components/SpinnerComponent'
 import { Container, Image, Pagination } from 'react-bootstrap'
-import { numOfPhotos } from '../info'
+import { numOfPhotosInGroup } from '../info'
 
 export default function Gallery() {
   const executeScroll = element => {
@@ -20,8 +20,8 @@ export default function Gallery() {
   }, [dispatch])
 
   const photosArray = []
-  for (let i = 0; i < Math.ceil(photos.length / numOfPhotos); i++) {
-    photosArray[i] = photos.slice(i * numOfPhotos, i * numOfPhotos + numOfPhotos)
+  for (let i = 0; i < Math.ceil(photos.length / numOfPhotosInGroup); i++) {
+    photosArray[i] = photos.slice(i * numOfPhotosInGroup, i * numOfPhotosInGroup + numOfPhotosInGroup)
   } // creating as many photo groups as we need
 
   return (

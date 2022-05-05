@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import axios from 'axios'
+import { useSelector } from 'react-redux'
 import { sleep } from '../sleep'
 import SpinnerComponent from '../components/SpinnerComponent'
 import { Card } from 'react-bootstrap'
@@ -8,19 +8,17 @@ import { BsArrowLeftSquareFill } from 'react-icons/bs'
 
 export default function More() {
   const { id: photoId } = useParams()
-  const [photo, setPhoto] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const photo = useSelector(state => state.photos.photos[+photoId - 1])
 
   useEffect(() => {
     window.scrollTo(0, 0)
-
-    sleep(500)
-      .then(() => axios.get(`https://jsonplaceholder.typicode.com/albums/1/photos/`))
-      .then(({ data }) => setPhoto(data[+photoId - 1]))
+    sleep(500).then(() => setIsLoading(false))
   }, [])
 
   return (
     <>
-      {!photo ? (
+      {isLoading ? (
         <SpinnerComponent />
       ) : (
         <div className="flex-grow-1 m-3">
@@ -34,6 +32,7 @@ export default function More() {
                 <Card.Title>{photo.title}</Card.Title>
                 <Card.Text>
                   <span className="m-0">id: {photo.id}</span>
+                  <br />
                   <span className="mb-1">url: {photo.url}</span>
                 </Card.Text>
               </Card.Body>
