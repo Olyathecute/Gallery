@@ -2,7 +2,7 @@ import { AiFillLinkedin } from 'react-icons/ai'
 import { BsTelegram, BsGithub } from 'react-icons/bs'
 import { HiMail } from 'react-icons/hi'
 
-export const MyPhoto = '/photo.jpg'
+export const MyPhoto = '/Gallery/photo.jpg'
 export const MyName = 'Olya'
 export const MyLocation = 'Georgia, Tbilisi'
 export const AboutText = (
