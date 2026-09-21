@@ -5,9 +5,10 @@ import { numOfAllPhotos } from '../info'
 
 function* workGetPhotosFetch() {
   yield sleep(500)
-  const photos = yield call(() => fetch(`https://jsonplaceholder.typicode.com/albums/1/photos/`))
+  const photos = yield call(() => fetch(`https://gallerybackend-onvb.onrender.com/photos`))
   const formattedPhotos = yield photos.json()
   const formattedPhotosShortened = formattedPhotos.slice(0, numOfAllPhotos)
+
   yield put(getPhotosSuccess(formattedPhotosShortened))
 }
 

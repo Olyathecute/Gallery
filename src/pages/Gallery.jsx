@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getPhotosFetch } from '../redux/appState'
@@ -46,7 +46,14 @@ export default function Gallery() {
                   {group.map(img => {
                     return (
                       <div key={img.id} className="d-inline position-relative">
-                        <Image className="m-1 w-25 rounded border border-dark" src={img.url} />
+                        <Image
+                          className="m-1 w-25 rounded border border-dark"
+                          style={{
+                            aspectRatio: '1 / 1',
+                            objectFit: 'cover'
+                          }}
+                          src={img.urls.small}
+                        />
                         <Link
                           to={`/more/${img.id}`}
                           className="position-absolute top-50 start-50 translate-middle h5 text-light text-decoration-none"

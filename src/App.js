@@ -1,4 +1,3 @@
-import React from 'react'
 import Gallery from './pages/Gallery'
 import About from './pages/About'
 import { Routes, Route } from 'react-router-dom'
@@ -9,7 +8,7 @@ import More from './pages/More'
 function App() {
   return (
     <>
-      <div className="d-flex flex-column vh-100">
+      <div className="d-flex flex-column vh-100 w-100">
         <Header />
         <Routes>
           <Route path="/" element={<Gallery />} />
